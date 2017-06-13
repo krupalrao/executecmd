@@ -1,8 +1,7 @@
 package exec
 
 import (
-	"fmt"
-	"strconv"
+	"os/exec"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
@@ -54,9 +53,7 @@ func (a *ExecActivity) Eval(context activity.Context) (done bool, err error) {
 	if err != nil {
 		log.Debug(err.Error())
 		context.SetOutput(ovResult, err.Error())
-	}
-	else
-	{
+	} else {
 		log.Info(string(out))
 		context.SetOutput(ovResult, string(out))
 	}
