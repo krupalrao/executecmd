@@ -23,7 +23,7 @@ Inputs and Outputs:
     {
       "name": "filePath",
       "type": "string",
-	  "required": true,
+	"required": true,
       "value": ""
     }
   ],
