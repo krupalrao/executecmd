@@ -1,4 +1,4 @@
-# tibco-log
+# tibco-exec
 This activity allows your flogo application to execute external shell, batch or python script.
 
 
