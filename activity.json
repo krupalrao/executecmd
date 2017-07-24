@@ -1,11 +1,11 @@
 {
   "name": "tibco-exec",
   "type": "flogo:activity",
-  "ref": "github.com/TIBCOSoftware/flogo-contrib/activity/exec",
+  "ref": "github.com/pawarvishal123/flogo-exec",
   "version": "0.0.1",
   "title": "Execute Script",
   "description": "Execute Script Activity",
-  "homepage": "https://github.com/TIBCOSoftware/flogo-contrib/tree/master/activity/exec",
+  "homepage": "https://github.com/pawarvishal123/flogo-exec",
   "inputs":[
     {
       "name": "scriptType",
