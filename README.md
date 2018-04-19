@@ -5,7 +5,7 @@ This activity allows your flogo application to execute commands. e.g. ls, ps.
 ## Installation
 
 ```bash
-flogo add activity github.com/pawarvishal123/executecmd
+flogo install github.com/pawarvishal123/executecmd
 ```
 
 ## Schema
