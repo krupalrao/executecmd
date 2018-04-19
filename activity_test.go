@@ -1,4 +1,4 @@
-package exec
+package executecmd
 
 import (
 	"fmt"
@@ -42,8 +42,7 @@ func TestEval(t *testing.T) {
 	tc := test.NewTestActivityContext(getActivityMetadata())
 
 	//setup attrs
-	tc.SetInput("scriptType", "Python")
-	tc.SetInput("filePath", "./test.py")
+	tc.SetInput("command", "ls")
 
 	act.Eval(tc)
 

@@ -1,4 +1,4 @@
-package exec
+package executecmd
 
 import (
 	"os/exec"
@@ -8,23 +8,9 @@ import (
 )
 
 // activityLog is the default logger for the exec Activity
-var log = logger.GetLogger("activity-tibco-exec")
+var log = logger.GetLogger("activity-tibco-executecmd")
 
-
-const (
-	ivScriptType   = "scriptType"
-	ivFilePath  = "filePath"
-
-	ovResult = "result"
-)
-
-func init() {
-	log.SetLogLevel(logger.InfoLevel)
-}
-
-// ExecActivity is an Activity that is used to execute shell, batch, python scripts
-// inputs : {scriptType, filePath}
-// outputs: {result}
+// ExecActivity is an Activity that is used to execute command
 type ExecActivity struct {
 	metadata *activity.Metadata
 }
@@ -42,21 +28,20 @@ func (a *ExecActivity) Metadata() *activity.Metadata {
 // Eval implements api.Activity.Eval - executes the script
 func (a *ExecActivity) Eval(context activity.Context) (done bool, err error) {
 
-	scriptType, _ := context.GetInput(ivScriptType).(string)
-	filePath, _ := context.GetInput(ivFilePath).(string)
+	command, _ := context.GetInput("command").(string)
 
-	log.Info(scriptType)
-	
-	cmd := exec.Command(filePath)
+	log.Info("command:", command)
+
+	cmd := exec.Command(command)
 	out, err := cmd.Output()
 
 	if err != nil {
 		log.Debug(err.Error())
-		context.SetOutput(ovResult, err.Error())
+		context.SetOutput("result", err.Error())
 	} else {
 		log.Info(string(out))
-		context.SetOutput(ovResult, string(out))
+		context.SetOutput("result", string(out))
 	}
-	
+
 	return true, nil
 }

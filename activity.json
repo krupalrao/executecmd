@@ -1,23 +1,16 @@
 {
-  "name": "tibco-exec",
+  "name": "executecmd",
   "type": "flogo:activity",
-  "ref": "github.com/pawarvishal123/flogo-exec",
+  "ref": "github.com/pawarvishal123/executecmd",
   "version": "0.0.1",
-  "title": "Execute Script",
-  "description": "Execute Script Activity",
-  "homepage": "https://github.com/pawarvishal123/flogo-exec",
+  "title": "Execute Command",
+  "description": "Execute Command Activity",
+  "homepage": "https://github.com/pawarvishal123/executecmd",
   "inputs":[
     {
-      "name": "scriptType",
+      "name": "command",
       "type": "string",
-      "required": true,
-      "allowed" : ["Shell", "Batch", "Python"]
-    },
-    {
-      "name": "filePath",
-      "type": "string",
-	  "required": true,
-      "value": ""
+      "required": true
     }
   ],
   "outputs": [
