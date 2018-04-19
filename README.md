@@ -1,11 +1,11 @@
 # tibco-exec
-This activity allows your flogo application to execute external shell, batch or python script.
+This activity allows your flogo application to execute commands. e.g. ls, ps.
 
 
 ## Installation
 
 ```bash
-flogo add activity github.com/TIBCOSoftware/flogo-contrib/activity/exec
+flogo add activity github.com/pawarvishal123/executecmd
 ```
 
 ## Schema
@@ -15,16 +15,9 @@ Inputs and Outputs:
 {
   "inputs":[
     {
-      "name": "scriptType",
+      "name": "command",
       "type": "string",
-      "required": true,
-      "allowed" : ["Shell", "Batch", "Python"]
-    },
-    {
-      "name": "filePath",
-      "type": "string",
-	"required": true,
-      "value": ""
+      "required": true
     }
   ],
   "outputs": [
@@ -38,9 +31,8 @@ Inputs and Outputs:
 ## Settings
 | Setting   | Description    |
 |:----------|:---------------|
-| scriptType   | The type of script - Shell, batch or python |         
-| filePath  | Script file path |
-| result | The execution result of the script  |
+| command   | Input command - ps, ls |         
+| result | The execution result of the command  |
 
 
 ## Configuration Examples
@@ -51,11 +43,10 @@ Configure a task to execute a script:
 {
   "id": 3,
   "type": 1,
-  "activityType": "tibco-exec",
-  "name": "Execute Script",
+  "activityType": "executecmd",
+  "name": "Execute Command",
   "attributes": [
-    { "name": "scriptType", "value": "Python" }
-	{ "name": "filePath", "value": "./test.py" }
+    { "name": "command", "value": "ps" }
   ]
 }
 ```
