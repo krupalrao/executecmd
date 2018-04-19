@@ -1,4 +1,4 @@
-# tibco-exec
+# Execute Command flogo activity
 This activity allows your flogo application to execute commands. e.g. ls, ps.
 
 
