@@ -31,23 +31,20 @@ func (a *ExecActivity) Eval(context activity.Context) (done bool, err error) {
 	command, _ := context.GetInput("command").(string)
 
 	log.Info("command:", command)
-	result := ""
+	var cmd *exec.Cmd
 	if runtime.GOOS == "windows" {
 		cmd := exec.Command("cmd", "/C", command)
-		out, err := cmd.Output()
-		result := string(out)
 	} else {
 		cmd := exec.Command("bash", "-c", command)
-		out, err := cmd.Output()
-		result := string(out)
 	}
-
+	out, err := cmd.Output()
+	
 	if err != nil {
 		log.Debug(err.Error())
 		context.SetOutput("result", err.Error())
 	} else {
-		log.Info(result)
-		context.SetOutput("result", result)
+		log.Info(string(out))
+		context.SetOutput("result", string(out))
 	}
 
 	return true, nil
