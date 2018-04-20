@@ -2,7 +2,7 @@ package executecmd
 
 import (
 	"os/exec"
-
+	"runtime"
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
@@ -31,8 +31,13 @@ func (a *ExecActivity) Eval(context activity.Context) (done bool, err error) {
 	command, _ := context.GetInput("command").(string)
 
 	log.Info("command:", command)
-
-	cmd := exec.Command(command)
+	
+	if runtime.GOOS == "windows" {
+		cmd := exec.Command("cmd", "/C", command)
+	}
+	else {
+		cmd := exec.Command("bash", "-c", command)
+	}
 	out, err := cmd.Output()
 
 	if err != nil {
