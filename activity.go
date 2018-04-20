@@ -33,9 +33,9 @@ func (a *ExecActivity) Eval(context activity.Context) (done bool, err error) {
 	log.Info("command:", command)
 	var cmd *exec.Cmd
 	if runtime.GOOS == "windows" {
-		cmd := exec.Command("cmd", "/C", command)
+		cmd = exec.Command("cmd", "/C", command)
 	} else {
-		cmd := exec.Command("bash", "-c", command)
+		cmd = exec.Command("bash", "-c", command)
 	}
 	out, err := cmd.Output()
 	
