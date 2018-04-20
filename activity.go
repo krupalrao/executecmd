@@ -32,7 +32,6 @@ func (a *ExecActivity) Eval(context activity.Context) (done bool, err error) {
 
 	log.Info("command:", command)
 	result := ""
-	var err error
 	if runtime.GOOS == "windows" {
 		cmd := exec.Command("cmd", "/C", command)
 		out, err := cmd.Output()
