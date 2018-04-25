@@ -1,5 +1,5 @@
 # Execute Command flogo activity
-This activity allows your flogo application to execute commands. e.g. ls, ps.
+This activity allows your flogo application to execute commands. e.g. ls, ps or batch(.bat) files(on windows)
 
 
 ## Installation
@@ -31,7 +31,7 @@ Inputs and Outputs:
 ## Settings
 | Setting   | Description    |
 |:----------|:---------------|
-| command   | Input command - ps, ls |         
+| command   | Input command - ps, ls, batch(.bat) file path |         
 | result | The execution result of the command  |
 
 
